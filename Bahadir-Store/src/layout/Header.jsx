@@ -1,35 +1,22 @@
-import { useState } from "react";
+import Carousel from "@/components/Carousel";
+import Navbar from "@/components/Navbar";
 
+const slides = [
+  "../../public/d491d421800e62998b9af7c838cc25d1.jpeg",
+  "../../public/c0357746eb27e42fff6279478e2c8a48.jpeg",
+  "../../public/d491d421800e62998b9af7c838cc25d1.jpeg",
+  "../../public/d491d421800e62998b9af7c838cc25d1.jpeg",
+];
 function Header() {
-    const [hamburgerOpen,setHamburgerOpen] = useState(false);
-
-    function toggleHamburger(){
-        setHamburgerOpen(!hamburgerOpen)
-    }
   return (
     <>
-      <nav className= "bg-white p-4 shadow-md">
-        <div className="flex justify-around items-center">
-          <h1 className="text-xl font-bold">Bahadır Store</h1>
-          <div className="flex gap-7">
-            <i className="fa fa-user"></i>
-            <i className="fa fa-search"></i>
-            <i className="fa fa-shopping-cart"></i>
-            <button onClick={toggleHamburger} >
-            <i className="fa fa-bars"></i>
-            </button>
-          </div>
-        </div>
+      <Navbar></Navbar>
 
-        {hamburgerOpen && (
-            <div className="flex flex-col items-between">
-            <a href="">Home</a>
-            <a href="">Product</a>
-            <a href="">Pricing</a>
-            <a href="">Contact</a>
-          </div>
-        )}
-      </nav>
+      <div className="w-auto h-auto">
+        <Carousel slides={slides}>
+         
+        </Carousel>
+      </div>
     </>
   );
 }

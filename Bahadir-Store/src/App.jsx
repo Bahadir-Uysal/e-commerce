@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"
 import Header from "./layout/Header"
 function App() {
   
@@ -6,7 +5,7 @@ function App() {
   return (
     <>
       <Header></Header>
-      <Button>Click me</Button>
+      
     </>
   )
 }
