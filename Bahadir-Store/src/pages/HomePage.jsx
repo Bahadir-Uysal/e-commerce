@@ -1,11 +1,13 @@
-import ShopCards from "@/components/ShopCards";
 import Header from "@/layout/Header";
+import HomePageContent from "@/layout/HomePageContent";
+import Footer from "./Footer";
 
 function HomePage() {
     return (
       <>
         <Header></Header>
-        <ShopCards></ShopCards>
+        <HomePageContent></HomePageContent>
+        <Footer></Footer>
       </>
     );
   }

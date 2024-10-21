@@ -1,7 +1,7 @@
 function ShopCards() {
   return (
     <>
-      <div className="container mx-auto px-4 py-4 md:px-24 flex flex-col justify-center items-center bg-[#FAFAFA]	">
+      <div className="container mx-auto px-4 py-4 md:px-24 flex flex-col justify-center items-center bg-[#FAFAFA] pb-16	">
         <div className="text-center max-w-52 py-12 tracking-wide flex flex-col gap-4">
           <h3 className="text-2xl font-bold">EDITOR’S PICK</h3>
           <p className="font-extralight">

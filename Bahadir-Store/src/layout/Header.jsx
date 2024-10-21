@@ -11,7 +11,6 @@ function Header() {
   return (
     <>
       <Navbar></Navbar>
-
       <div className="w-auto h-auto">
         <Carousel slides={slides}>
          
