@@ -1,6 +1,6 @@
-import madison1 from "../assets/Madison1.jpeg"
-import madison2 from "../assets/madison2.jpeg"
-import madison3 from "../assets/madison3.jpeg"
+import madison1 from "../assets/mad1.jpeg"
+import madison2 from "../assets/mad2.jpeg"
+import madison3 from "../assets/mad3.jpeg"
 
 
 
