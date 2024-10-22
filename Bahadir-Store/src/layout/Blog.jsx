@@ -1,6 +1,6 @@
-import madison1 from "../assets/Madison1.jpeg"
-import madison2 from "../assets/Madison2.jpeg"
-import madison3 from "../assets/Madison3.jpeg"
+import madison1 from "../assets/mad1.jpeg"
+import madison2 from "../assets/mad2.jpeg"
+import madison3 from "../assets/mad3.jpeg"
 
 
 
@@ -18,7 +18,7 @@ function Blog () {
         {
           id: 2,
           img: madison2,
-          title: "Loudest à la Madison #1 (L'integral)",
+          title: "Loudest à la Madison #2 (L'integral)",
           description:
             "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
           date: "22 April 2021",
@@ -27,7 +27,7 @@ function Blog () {
         {
           id: 3,
           img: madison3,
-          title: "Loudest à la Madison #1 (L'integral)",
+          title: "Loudest à la Madison #3 (L'integral)",
           description:
             "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
           date: "22 April 2021",
