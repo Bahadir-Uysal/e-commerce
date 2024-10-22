@@ -109,3 +109,5 @@ function CarouselSlider({ Index = 0 }) {
 }
 
 export default CarouselSlider;
+//TODO bg-color of second  slide is not correct
+//FIXME fix the button padding

@@ -13,3 +13,4 @@ function HomePage() {
   }
   
   export default HomePage;
+  //TODO CHECK THE ROUTER AND DESKTOP  VERSION
