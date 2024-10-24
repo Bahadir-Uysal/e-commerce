@@ -10,6 +10,7 @@ function DetailedProduct() {
   const [sliderImages, setSliderImages] = useState([]);
 
   useEffect(() => {
+    console.log(id)
     const foundProduct = products.find((p) => p.id === parseInt(id));
     setProduct(foundProduct || products[0]);
 
@@ -21,6 +22,7 @@ function DetailedProduct() {
         .map((p) => p.imageUrl);
 
       setSliderImages([foundProduct.imageUrl, ...randomImages]);
+      console.log([foundProduct.imageUrl, ...randomImages])
     }
   }, [id]);
 
@@ -36,7 +38,7 @@ function DetailedProduct() {
     );
   };
 
-  if (!product || sliderImages.length === 0) return <div>Loading...</div>;
+  if (!product || sliderImages.length === 1) return <div>Loading...</div>;
 
   return (
     <div className="p-4 max-w-7xl mx-auto">
@@ -75,7 +77,7 @@ function DetailedProduct() {
                 key={index}
                 src={src}
                 alt={`Thumbnail ${index + 1}`}
-                className={`w-16 h-16 object-cover cursor-pointer ${
+                className={`w-16 h-16  cursor-pointer ${
                   currentSlide === index ? "border-2 border-blue-500" : ""
                 }`}
                 onClick={() => setCurrentSlide(index)}

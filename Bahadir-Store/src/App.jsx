@@ -8,10 +8,10 @@ function App() {
     <>
       <Router>
         <Switch>
-        <Route path="/product">
+        <Route path="/product/:id" component={ProductPage}>
             <ProductPage></ProductPage>
           </Route>
-          <Route path="/shop">
+          <Route path="/shop" component={ShopPage}>
             <ShopPage></ShopPage>
           </Route>
           <Route path="/">
