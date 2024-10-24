@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ShopPage from "./pages/ShopPage";
 import ProductPage from "./pages/ProductPage";
 import ContactPage from "./pages/ContactPage";
+import TeamPage from "./pages/TeamPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route>
             <ContactPage path="/contact" component={ContactPage}></ContactPage>
           </Route>
+          <Route><TeamPage path="/team" component={TeamPage}></TeamPage></Route>
         </Switch>
       </Router>
     </>
