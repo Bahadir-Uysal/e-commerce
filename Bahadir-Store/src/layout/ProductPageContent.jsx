@@ -1,4 +1,5 @@
 import DetailedProduct from "@/components/DetailedProduct"
+import Products from "@/components/Products"
 import SecondBanner from "@/components/SecondBanner"
 
 function ProductPageContent(){
@@ -6,7 +7,7 @@ function ProductPageContent(){
         <>
         <DetailedProduct></DetailedProduct>
         <SecondBanner></SecondBanner>
-        
+        <Products></Products>
         </>
     )
 }
