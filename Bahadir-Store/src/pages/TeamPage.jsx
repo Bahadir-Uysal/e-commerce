@@ -1,5 +1,5 @@
 import erhan from "../assets/erhan.jpeg";
-import gökhan from "../assets/gökhan.jpeg";
+import gokhan from "../assets/gokhan.jpeg";
 import me from "../assets/me2.jpeg";
 import cetin from "../assets/cetin.jpeg";
 import aysen from "../assets/aysen.jpeg";
@@ -16,7 +16,7 @@ function TeamPage() {
       id: 2,
       name: "Gökhan Özdemir",
       profession: "Scrum Master",
-      image: gökhan,
+      image: gokhan,
     },
     {
       id: 3,
