@@ -3,26 +3,20 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ShopPage from "./pages/ShopPage";
 import ProductPage from "./pages/ProductPage";
 import ContactPage from "./pages/ContactPage";
+import TeamPage from "./pages/TeamPage";
 
 function App() {
   return (
     <>
-      <Router>
-        <Switch>
-          <Route path="/" exact component={HomePage}>
-            <HomePage></HomePage>
-          </Route>
-          <Route path="/shop" component={ShopPage}>
-            <ShopPage></ShopPage>
-          </Route>
-          <Route path="/product/:id" component={ProductPage}>
-            <ProductPage></ProductPage>
-          </Route>
-          <Route>
-            <ContactPage path="/contact" component={ContactPage}></ContactPage>
-          </Route>
-        </Switch>
-      </Router>
+       <Router>
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/shop" component={ShopPage} />
+        <Route path="/product/:id" component={ProductPage} />
+        <Route path="/contact" component={ContactPage} />
+        <Route path="/team" component={TeamPage} />
+      </Switch>
+    </Router>
     </>
   );
 }
