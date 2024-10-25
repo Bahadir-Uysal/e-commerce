@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import womenShopping from "../assets/women-shopping.jpeg";
 import menThings from "../assets/men-things.png";

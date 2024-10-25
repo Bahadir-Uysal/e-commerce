@@ -152,3 +152,5 @@ function DetailedProduct() {
 }
 
 export default DetailedProduct;
+
+//TODO data daki ürünleri ve görselleri kontrol et gerekirse ekleme yap.
