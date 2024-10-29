@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import InputMask from "react-input-mask";
 import api from "../api/axios";
@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 function SignUpPageContent() {
   const [roles, setRoles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -25,10 +25,8 @@ function SignUpPageContent() {
 
   useEffect(() => {
     const fetchRoles = async () => {
-        
       try {
         const response = await api.get("/roles");
-        console.log("Available roles:", response.data)
         setRoles(response.data);
       } catch (error) {
         toast.error("Failed to fetch roles");
@@ -44,9 +42,9 @@ function SignUpPageContent() {
         name: data.name,
         email: data.email,
         password: data.password,
-        role_id: 1   // parseInt(data.role_id), // Convert to number
+        role_id: 1, // parseInt(data.role_id), // Convert to number
       };
-      
+
       if (data.role_id === "2") {
         formData.store = {
           name: data.store.name,
@@ -55,21 +53,14 @@ function SignUpPageContent() {
           bank_account: data.store.bank_account.replace(/\s/g, ""), // Remove spaces
         };
       }
-      
-      // Log what we're sending
-      console.log('Sending data:', formData);
 
-      const response = await api.post("/signup", formData);
-      
-      console.log('Response:', response);
-      toast.success(
-        "You need to click link in email to activate your account!"
-      );
-      history.goBack();
+      await api.post("/signup", formData);
+
+     navigate(-1);
+      toast.success("You need to click link in email to activate your account!")
+
+    
     } catch (error) {
-      // Log the error details
-      console.error('Full error:', error);
-      console.error('Error details:', error.response?.data);
       toast.error(error.response?.data?.message || "Registration failed");
     } finally {
       setIsLoading(false);

@@ -1,5 +1,5 @@
 import HomePage from "./pages/HomePage";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
 import ShopPage from "./pages/ShopPage";
 import ProductPage from "./pages/ProductPage";
 import ContactPage from "./pages/ContactPage";
@@ -7,20 +7,22 @@ import TeamPage from "./pages/TeamPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import SignUpPage from "./pages/SignUpPage";
 import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <>
-        <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route path="/product/:id" component={ProductPage} />
-          <Route path="/contact" component={ContactPage} />
-          <Route path="/team" component={TeamPage} />
-          <Route path="/AboutUs" component={AboutUsPage} />
-          <Route path="/signup" component={SignUpPage} />
-        </Switch>
+        <Routes>
+          <Route path="/" exact element={<HomePage/>} />
+          <Route path="/shop" element={<ShopPage/>} />
+          <Route path="/product/:id" element={<ProductPage/>} />
+          <Route path="/contact" element={<ContactPage/>} />
+          <Route path="/team" element={<TeamPage/>} />
+          <Route path="/AboutUs" element={<AboutUsPage/>} />
+          <Route path="/signup" element={<SignUpPage/>} />
+        </Routes>
         <ToastContainer
           position="top-right"
           autoClose={5000}
@@ -31,9 +33,10 @@ function App() {
           pauseOnFocusLoss
           draggable
           pauseOnHover
+          theme="light"
         />
       </>
-    </Router>
+    </BrowserRouter>
   );
 }
 
