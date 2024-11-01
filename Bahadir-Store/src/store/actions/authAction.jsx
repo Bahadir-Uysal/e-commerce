@@ -49,42 +49,57 @@ export const checkAuthStatusThunk = () => async (dispatch) => {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     
     // Verify token with backend
-    const response = await axios.get('/user/me'); // Adjust this endpoint to match your API
+    const response = await axios.get('/user/me');
     
-    dispatch(setUser(response.data));
+    // Add gravatar to user data
+    const user = {
+      ...response.data,
+      gravatar: `https://www.gravatar.com/avatar/${md5(response.data.email)}`
+    };
+    
+    dispatch(setUser(user));
   } catch (error) {
     console.error('Auth check failed:', error);
     localStorage.removeItem('token');
     delete axios.defaults.headers.common['Authorization'];
+    dispatch(setAuthError('Session expired. Please login again.'));
   } finally {
     dispatch(setAuthCheckComplete());
   }
 };
 
 // Login Thunk
-export const loginUserThunk = ({ email, password }) => async (dispatch) => {
+export const loginUserThunk = ({ email, password, rememberMe }) => async (dispatch) => {
   dispatch(setAuthLoading());
   
   try {
     const response = await axios.post('/login', { email, password });
     const { user, token } = response.data;
 
-    // Store token in localStorage
-    localStorage.setItem('token', token);
+    // Store token in localStorage only if rememberMe is true
+    if (rememberMe) {
+      localStorage.setItem('token', token);
+    } else {
+      // For session-only storage
+      sessionStorage.setItem('token', token);
+    }
     
     // Set default auth header
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
-    // Dispatch user info
-    dispatch(setUser({ 
+    // Add gravatar to user data
+    const userData = { 
       ...user, 
-      gravatar: `https://www.gravatar.com/avatar/${md5(email)}` 
-    }));
+      gravatar: `https://www.gravatar.com/avatar/${md5(email)}?d=mp&s=200` // Added default image and size
+    };
+
+    // Dispatch user info
+    dispatch(setUser(userData));
 
     toast.success('Login successful!');
     return { success: true, token };
   } catch (error) {
-    const errorMessage = error.response?.data?.message || 'Login failed';
+    const errorMessage = error.response?.data?.message || 'Login failed. Please check your credentials.';
     dispatch(setAuthError(errorMessage));
     toast.error(errorMessage);
     return { success: false, message: errorMessage };
@@ -103,8 +118,9 @@ export const logoutUserThunk = () => async (dispatch) => {
       console.log('Logout API call failed, but continuing with local logout');
     }
 
-    // Remove token from localStorage
+    // Remove token from both storages
     localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
     
     // Remove auth header
     delete axios.defaults.headers.common['Authorization'];
