@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
+import {thunk} from 'redux-thunk';
 import logger from 'redux-logger';
 
-import shoppingCartReducer from './reducers/shopingCartReducer.jsx';
+import shoppingCartReducer from './reducers/shoppingCartReducer.jsx';
 import productReducer from './reducers/productReducer.jsx';
 import orderReducer from './reducers/orderReducer.jsx';
 import creditCardReducer from './reducers/creditCardReducer.jsx';

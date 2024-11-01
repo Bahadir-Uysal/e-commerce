@@ -1,4 +1,4 @@
-import * as types from "../actions/productActions.jsx";
+import * as types from "../actions/productAction.jsx";
 
 const initialState = {
     categories: [],

@@ -1,5 +1,6 @@
-import { loadCartFromStorage } from "@/utils/localStorage";
-import { ADD_TO_CART, CLEAR_CART, REMOVE_FROM_CART, SET_ADDRESS, SET_PAYMENT, UPDATE_QUANTITY, CALCULATE_CART_TOTALS } from "../actions/shoppingCartActions";
+/* eslint-disable no-case-declarations */
+import { loadCartFromStorage } from "@/components/LocalStorage";
+import { ADD_TO_CART, CLEAR_CART, REMOVE_FROM_CART, SET_ADDRESS, SET_PAYMENT, UPDATE_QUANTITY, CALCULATE_CART_TOTALS } from "../actions/shoppingCartAction";
 
 const initialState = {
   cart: loadCartFromStorage(),

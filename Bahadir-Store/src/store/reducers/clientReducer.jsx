@@ -1,4 +1,4 @@
-import { getGravatarUrl } from '../..components/Gravatar';
+import { getGravatarUrl } from '@/components/Gravatar';
 
 const initialState = {
   user: {},

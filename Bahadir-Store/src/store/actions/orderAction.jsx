@@ -1,8 +1,8 @@
 // orderActions.js
-import api from '../../services/api';
+import api from '../../apies/api';
 import { toast } from 'react-toastify';
 import { format } from 'date-fns';
-import { clearCart } from './shoppingCartActions';
+import { clearCart } from './shoppingCartAction';
 
 export const ORDER_ACTION = 'ORDER_ACTION';
 export const SAVE_ORDER_HISTORY = 'SAVE_ORDER_HISTORY';
