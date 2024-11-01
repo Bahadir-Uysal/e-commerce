@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import InputMask from "react-input-mask";
-import api from "../api/axios";
+import api from "../apies/api";
 import { toast } from "react-toastify";
 function SignUpPageContent() {
   const [roles, setRoles] = useState([]);
