@@ -10,15 +10,18 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import LoginPage from "./pages/LoginPage";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { verifyToken } from "./store/actions/clientAction";
 
 
 function App() {
+  const clientState = useSelector(state => state.client);
+  console.log('Client State in Component:', clientState);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    // Check for token on app start
-    const token = localStorage.getItem('token');
-    console.log('Token in localStorage:', token ? 'Yes, token exists' : 'No token found');
-    console.log('Token value:', token);
-  }, []);
+    dispatch(verifyToken());
+  }, [dispatch]);
 
   return (
     <BrowserRouter>
