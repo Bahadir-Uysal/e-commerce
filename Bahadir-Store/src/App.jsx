@@ -9,9 +9,17 @@ import SignUpPage from "./pages/SignUpPage";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import LoginPage from "./pages/LoginPage";
+import { useEffect } from "react";
 
 
 function App() {
+  useEffect(() => {
+    // Check for token on app start
+    const token = localStorage.getItem('token');
+    console.log('Token in localStorage:', token ? 'Yes, token exists' : 'No token found');
+    console.log('Token value:', token);
+  }, []);
+
   return (
     <BrowserRouter>
       <>
