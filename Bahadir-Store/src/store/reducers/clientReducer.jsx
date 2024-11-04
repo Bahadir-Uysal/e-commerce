@@ -1,7 +1,7 @@
 import { getGravatarUrl } from '@/components/Gravatar';
 
 const initialState = {
-  user: {},
+  user: null,
   addressList: [],
   creditCards: [],
   roles: [],
@@ -11,8 +11,11 @@ const initialState = {
 };
 
 const clientReducer = (state = initialState, action) => {
+  console.log('Client Reducer - Action:', action.type);
+  console.log('Client Reducer - Current State:', state);
   switch (action.type) {
     case 'SET_USER':
+      
       return { 
         ...state, 
         user: action.payload,

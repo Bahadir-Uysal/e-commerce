@@ -9,9 +9,20 @@ import SignUpPage from "./pages/SignUpPage";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import LoginPage from "./pages/LoginPage";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { verifyToken } from "./store/actions/clientAction";
 
 
 function App() {
+  const clientState = useSelector(state => state.client);
+  console.log('Client State in Component:', clientState);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(verifyToken());
+  }, [dispatch]);
+
   return (
     <BrowserRouter>
       <>
