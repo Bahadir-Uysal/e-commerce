@@ -8,6 +8,7 @@ import AboutUsPage from "./pages/AboutUsPage";
 import SignUpPage from "./pages/SignUpPage";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import LoginPage from "./pages/LoginPage";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/team" element={<TeamPage/>} />
           <Route path="/AboutUs" element={<AboutUsPage/>} />
           <Route path="/signup" element={<SignUpPage/>} />
+          <Route path="/login" element={<LoginPage/>} />
         </Routes>
         <ToastContainer
           position="top-right"
